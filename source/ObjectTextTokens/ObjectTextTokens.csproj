@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Object text tokens is a library that allows you to do text templating within your .net objects. Use it to provide simple text templating within your application.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/dgwaldo/ObjectTextTokens</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dgwaldo/ObjectTextTokens.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Text Templating, Text Replacement, Document Formatting</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
