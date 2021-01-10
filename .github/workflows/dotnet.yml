@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: dotnet build source/ObjectTextTokens.sln --no-restore --configuration Release
     - name: Test
-      run: dotnet test source/ObjectTextTokens.Tests/ObjectTextTokens.Tests.csproj --no-build --verbosity normal
+      run: dotnet test source/ObjectTextTokens.Tests/ObjectTextTokens.Tests.csproj --no-build --configuration Release --verbosity normal
     - name: Pack with dotnet
       run: dotnet pack source/ObjectTextTokens/ObjectTextTokens.csproj --output nuget-packages --configuration Release
     - name: Push with dotnet
