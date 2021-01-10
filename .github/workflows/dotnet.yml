@@ -18,11 +18,11 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore source/ObjectTextTokens.sln
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build source/ObjectTextTokens.sln --no-restore --configuration Release
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test source/ObjectTextTokens.sln --no-build --verbosity normal
     - name: Pack with dotnet
       run: dotnet pack source/ObjectTextTokens/ObjectTextTokens.csproj --output nuget-packages --configuration Release
     - name: Push with dotnet
