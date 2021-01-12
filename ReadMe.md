@@ -2,8 +2,6 @@
 
 Object text tokens is a library that allows you to do text templating within your .net objects. Use it to provide simple text templating within your application.
 
-Using tokens case insensitive tokens taking the form of @object.property@, you can do text templating within your objects.
-
 ### Supports using data from:
 
 * Object Properties (string, int, double, etc.)
@@ -24,6 +22,9 @@ Using tokens case insensitive tokens taking the form of @object.property@, you c
 * Object Methods
 * Private Fields
 
+### Unmatched tokens
+By default tokens that are not found with be replaced with an empty string. 
+If you would prefer to get an error when a token isn't matched, set ObjectTextFieldTokenization.ThrowOnUnfoundToken = true;
 
 ## Installation
 
@@ -34,6 +35,7 @@ Install-Package ObjectTextTokens
 ```
 
 ## Usage
+Use case insensitive tokens in the form of @object.property@, as placeholders within the text of your object properties. 
 
 ```C#
 using ObjectTextTokens;
