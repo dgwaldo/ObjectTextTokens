@@ -10,6 +10,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Text Templating, Text Replacement, Document Formatting</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>

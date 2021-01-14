@@ -22,6 +22,16 @@ namespace ObjectTextTokens.Tests {
         }
 
         [TestMethod]
+        public void Should_not_replace_token_contents_on_readonly_property() {
+            //Arrange
+            var testObject = new TestObject();
+            //Act
+            ObjectTextFieldTokenization.Tokenize(testObject);
+            //Assert
+            Assert.AreEqual("@Prop1@", testObject.ReadonlyProp);
+        }
+
+        [TestMethod]
         public void Should_replace_token_content_on_property_regardles_of_token_casing() {
             //Arrange
             var testObject = new TestObject {

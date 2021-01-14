@@ -40,7 +40,7 @@ namespace ObjectTextTokens {
             foreach (PropertyInfo property in properties) {
                 var propertyValue = property.GetValue(inputObj);
 
-                if (propertyValue != null) {
+                if (propertyValue != null && property.CanWrite) {
                     bool replaced = ReplaceTypeOfDictionary(inputObj, lookupObj, property, propertyValue);
                     replaced = replaced || ReplaceTypeOfIEnumerableKeyVal(inputObj, lookupObj, property, propertyValue);
                     replaced = replaced || ReplaceTypeOfArrayString(inputObj, lookupObj, property, propertyValue);
@@ -150,7 +150,7 @@ namespace ObjectTextTokens {
                 matchedTokens.OfType<Match>().ToList().ForEach(t => {
                     var fieldPath = t.Value.Replace("@", String.Empty);
                     var content = GetPropertyValue(lookupObj, fieldPath, t.Value)?.ToString();
-                    if(content == null && ThrowOnUnfoundToken) {
+                    if (content == null && ThrowOnUnfoundToken) {
                         throw new Exception($"{t.Value} token path not found in the object, check the token");
                     }
                     fieldContents = content != null ? fieldContents.ToString().Replace(t.Value, content) : fieldContents.ToString().Replace(t.Value, "");
