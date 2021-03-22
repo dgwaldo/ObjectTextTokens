@@ -150,6 +150,9 @@ namespace ObjectTextTokens {
                 matchedTokens.OfType<Match>().ToList().ForEach(t => {
                     var fieldPath = t.Value.Replace("@", String.Empty);
                     var content = GetPropertyValue(lookupObj, fieldPath, t.Value)?.ToString();
+                    if (content == t.Value) {
+                        throw new Exception($"{t.Value} token is self referencing, check the token");
+                    }
                     if (content == null && ThrowOnUnfoundToken) {
                         throw new Exception($"{t.Value} token path not found in the object, check the token");
                     }

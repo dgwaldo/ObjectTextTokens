@@ -272,6 +272,23 @@ namespace ObjectTextTokens.Tests {
             Assert.AreEqual("USA, CA, AU", testObject.Prop1);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void When_tokens_are_self_referencing_should_throw_exception() {
+            //Arrange
+            var testObject = new TestObject {
+                Prop2 = "@prop2@"
+            };
+            //Act
+            try {
+                ObjectTextFieldTokenization.Tokenize(testObject);
+            } catch (Exception ex) {
+                //Assert
+                Assert.AreEqual("@prop2@ token is self referencing, check the token", ex.Message);
+                throw;
+            }
+        }
+
     }
 }
 
